@@ -1,0 +1,135 @@
+<misterromdescription>
+    <rotation>vertical (ccw)</rotation>
+    <name>Silver Millennium</name>
+    <setname>silvmil</setname>
+    <mameversion>0289</mameversion>
+    <year>1995</year>
+    <manufacturer>Para</manufacturer>
+    <players>2</players>
+    <joystick>8</joystick>
+    <rbf>silvmil</rbf>
+    <platform>Para</platform>
+
+    <!--
+      Image for the Silvmil core (rtl/sm_mem.sv, tools/silvmil_image.py):
+
+        0x000000  68000 program (1 MB, each word low byte first)
+        0x100000  tile ROM: first half at 0x100000, second half at 0x300000
+        0x500000  sprite ROM: first half at 0x500000, second half at 0x600000
+        0x700000  OKI M6295 samples (256 KB)
+        0x740000  Z80 program (64 KB)
+        0x750000  configuration (8 bytes)
+
+      Made by tools/make_mra.py from MAME 0.289 (src/mame/f32/silvmil.cpp); expects the MAME 0.289 merged romset or
+      the split sets: parts are found by name and CRC.
+
+      DIP switches (ioctl index 254): byte 0 is SW1 (bits 7:0 of MAME's DSW port), byte 1 is SW2 (bits 15:8); a 1 is "off".
+      MAME's default is FBFF.
+    -->
+    <switches default="FF,FB" base="16">
+        <dip bits="0,1" name="Difficulty" ids="Very Hard,Hard,Easy,Normal"/>
+        <dip bits="2" name="DSW1:3 - Unknown" ids="On,Off"/>
+        <dip bits="3" name="DSW1:4 - Unknown" ids="On,Off"/>
+        <dip bits="4" name="DSW1:5 - Unknown" ids="On,Off"/>
+        <dip bits="5" name="DSW1:6 - Unknown" ids="On,Off"/>
+        <dip bits="6" name="DSW1:7 - Unknown" ids="On,Off"/>
+        <dip bits="7" name="DSW1:8 - Unknown" ids="On,Off"/>
+        <dip bits="8" name="DSW2:1 - Unknown" ids="On,Off"/>
+        <dip bits="9" name="DSW2:2 - Unknown" ids="On,Off"/>
+        <dip bits="10" name="Language" ids="English,Korean"/>
+        <dip bits="11,13" name="Coinage" ids="4C/2C,4C/1C,3C/2C,3C/1C,2C/2C,2C/1C,Unknown (6),1C/1C"/>
+        <dip bits="14" name="Coin Box" ids="2,1"/>
+        <dip bits="15" name="Service Mode" ids="On,Off"/>
+    </switches>
+
+    <rom index="0" zip="silvmil.zip" md5="7c90fc63f28f381c5fb84f836e9a7222" address="0x32000000">
+        <!-- maincpu: the 68000 program, each word low byte first -->
+        <interleave output="16">
+            <part name="d-13_u3.bin" crc="46106c59" offset="0x0" length="0x40000" map="10"/>
+            <part name="d-14_u2.bin" crc="65421eca" offset="0x0" length="0x40000" map="01"/>
+        </interleave>
+        <part repeat="0x2000">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</part>
+        <!-- tiles: first half at 0x100000, second half at 0x300000 -->
+        <interleave output="16">
+            <part name="d-16_u41.bin" crc="ff5ea605" offset="0x0" length="0x20000" map="01"/>
+            <part name="d-15_u42.bin" crc="5f72d6cc" offset="0x0" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-16_u41.bin" crc="ff5ea605" offset="0x40000" length="0x20000" map="01"/>
+            <part name="d-15_u42.bin" crc="5f72d6cc" offset="0x40000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-17_pat11.bin" crc="2facb3f1" offset="0x0" length="0x20000" map="01"/>
+            <part name="d-20_pat01.bin" crc="cc4d3b49" offset="0x0" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-17_pat11.bin" crc="2facb3f1" offset="0x40000" length="0x20000" map="01"/>
+            <part name="d-20_pat01.bin" crc="cc4d3b49" offset="0x40000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-18_pat12.bin" crc="a429b237" offset="0x0" length="0x20000" map="01"/>
+            <part name="d-17_pat02.bin" crc="addc5261" offset="0x0" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-18_pat12.bin" crc="a429b237" offset="0x40000" length="0x20000" map="01"/>
+            <part name="d-17_pat02.bin" crc="addc5261" offset="0x40000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-19_pat13.bin" crc="af2507ce" offset="0x0" length="0x20000" map="01"/>
+            <part name="d-18_pat03.bin" crc="36b9c407" offset="0x0" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-19_pat13.bin" crc="af2507ce" offset="0x40000" length="0x20000" map="01"/>
+            <part name="d-18_pat03.bin" crc="36b9c407" offset="0x40000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-16_u41.bin" crc="ff5ea605" offset="0x20000" length="0x20000" map="01"/>
+            <part name="d-15_u42.bin" crc="5f72d6cc" offset="0x20000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-16_u41.bin" crc="ff5ea605" offset="0x60000" length="0x20000" map="01"/>
+            <part name="d-15_u42.bin" crc="5f72d6cc" offset="0x60000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-17_pat11.bin" crc="2facb3f1" offset="0x20000" length="0x20000" map="01"/>
+            <part name="d-20_pat01.bin" crc="cc4d3b49" offset="0x20000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-17_pat11.bin" crc="2facb3f1" offset="0x60000" length="0x20000" map="01"/>
+            <part name="d-20_pat01.bin" crc="cc4d3b49" offset="0x60000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-18_pat12.bin" crc="a429b237" offset="0x20000" length="0x20000" map="01"/>
+            <part name="d-17_pat02.bin" crc="addc5261" offset="0x20000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-18_pat12.bin" crc="a429b237" offset="0x60000" length="0x20000" map="01"/>
+            <part name="d-17_pat02.bin" crc="addc5261" offset="0x60000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-19_pat13.bin" crc="af2507ce" offset="0x20000" length="0x20000" map="01"/>
+            <part name="d-18_pat03.bin" crc="36b9c407" offset="0x20000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-19_pat13.bin" crc="af2507ce" offset="0x60000" length="0x20000" map="01"/>
+            <part name="d-18_pat03.bin" crc="36b9c407" offset="0x60000" length="0x20000" map="10"/>
+        </interleave>
+        <!-- sprites: first half at 0x500000, second half at 0x600000 -->
+        <interleave output="16">
+            <part name="d-17_u53.bin" crc="4d177bda" offset="0x0" length="0x80000" map="01"/>
+            <part name="d-18_u54.bin" crc="218c4471" offset="0x0" length="0x80000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="d-19_u55.bin" crc="59507521" offset="0x0" length="0x80000" map="01"/>
+            <part name="d-20_u56.bin" crc="e67c2c7d" offset="0x0" length="0x80000" map="10"/>
+        </interleave>
+        <!-- oki: the M6295 samples -->
+        <part name="d-12_uz1.bin" crc="a170d8a9" offset="0x0" length="0x40000"/>
+        <!-- audiocpu: the Z80 program (64 KB) -->
+        <part name="d-11_uz02.bin" crc="b41289e6" offset="0x0" length="0x10000"/>
+        <!-- configuration: PuzzLove sprite format, 32768 tiles, sound clocks, vertical, button 3 -->
+        <part>00 01 00 01 00 00 00 00</part>
+    </rom>
+
+    <buttons names="Shot,Bomb,-,Start,Coin" default="A,B,Start,Select"/>
+</misterromdescription>

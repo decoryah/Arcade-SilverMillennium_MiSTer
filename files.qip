@@ -1,0 +1,69 @@
+set_global_assignment -name SYSTEMVERILOG_FILE Silvmil.sv
+set_global_assignment -name SDC_FILE Silvmil.sdc
+set_global_assignment -name QIP_FILE rtl/pll.qip
+set_global_assignment -name SEARCH_PATH rtl
+
+# the machine
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_cen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_cache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_main.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_render.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_sound.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_crtadj.sv
+set_global_assignment -name SYSTEMVERILOG_FILE modules/crt_adjust/crt_adjust.sv
+
+# MiSTer platform layer: the SDRAM and the loader
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_mem.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sm_fastload.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sdram_ctrl.sv
+
+# fx68k 68000 (GPL-3, Jorge Cwik); microrom.mem / nanorom.mem are read from the project directory
+set_global_assignment -name SYSTEMVERILOG_FILE modules/cpu-fx68k/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE modules/cpu-fx68k/uaddrPla.sv
+set_global_assignment -name SYSTEMVERILOG_FILE modules/cpu-fx68k/fx68k.sv
+
+# TV80 Z80 (Guy Hutchison; tv80s_cen: the clock enable as a port)
+set_global_assignment -name VERILOG_FILE modules/cpu-tv80/tv80_alu.v
+set_global_assignment -name VERILOG_FILE modules/cpu-tv80/tv80_core.v
+set_global_assignment -name VERILOG_FILE modules/cpu-tv80/tv80_mcode.v
+set_global_assignment -name VERILOG_FILE modules/cpu-tv80/tv80_reg.v
+set_global_assignment -name VERILOG_FILE modules/cpu-tv80/tv80s_cen.v
+
+# jt51 (YM2151, GPL-3.0, Jose Tejada), vendored in modules/jt51 unchanged (the owner's Metro core's copy)
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_acc.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_eg.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_exp2lin.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_exprom.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_kon.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_lfo.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_lin2exp.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_mmr.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_mod.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_noise_lfsr.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_noise.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_op.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_pg.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_phinc_rom.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_phrom.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_pm.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_reg.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_sh.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_timers.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_reg_ch.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51_csr_op.v
+set_global_assignment -name VERILOG_FILE modules/jt51/hdl/jt51.v
+set_global_assignment -name SEARCH_PATH modules/jt51/hdl
+
+# jt6295 (OKI M6295, GPL-3.0, Jose Tejada), INTERPOL = 0
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_adpcm.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_timing.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_acc.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_ctrl.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_rom.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_serial.v
+set_global_assignment -name VERILOG_FILE modules/jt6295/hdl/jt6295_sh_rst.v
+set_global_assignment -name SEARCH_PATH modules/jt6295/hdl

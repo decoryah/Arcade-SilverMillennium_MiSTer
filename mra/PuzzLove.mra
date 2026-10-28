@@ -1,0 +1,89 @@
+<misterromdescription>
+    <rotation>horizontal</rotation>
+    <name>PuzzLove</name>
+    <setname>puzzlove</setname>
+    <mameversion>0289</mameversion>
+    <year>1994</year>
+    <manufacturer>Para</manufacturer>
+    <players>2</players>
+    <joystick>8</joystick>
+    <rbf>silvmil</rbf>
+    <platform>Para</platform>
+
+    <!--
+      Image for the Silvmil core (rtl/sm_mem.sv, tools/silvmil_image.py):
+
+        0x000000  68000 program (1 MB, each word low byte first)
+        0x100000  tile ROM: first half at 0x100000, second half at 0x300000
+        0x500000  sprite ROM: first half at 0x500000, second half at 0x600000
+        0x700000  OKI M6295 samples (256 KB)
+        0x740000  Z80 program (64 KB)
+        0x750000  configuration (8 bytes)
+
+      Made by tools/make_mra.py from MAME 0.289 (src/mame/f32/silvmil.cpp); expects the MAME 0.289 merged romset or
+      the split sets: parts are found by name and CRC.
+
+      DIP switches (ioctl index 254): byte 0 is SW1 (bits 7:0 of MAME's DSW port), byte 1 is SW2 (bits 15:8); a 1 is "off".
+      MAME's default is FDFF.
+    -->
+    <switches default="FF,FD" base="16">
+        <dip bits="0" name="Unused (SW1:1)" ids="On,Off"/>
+        <dip bits="1" name="Unused (SW1:2)" ids="On,Off"/>
+        <dip bits="2" name="Unused (SW1:3)" ids="On,Off"/>
+        <dip bits="3" name="Unused (SW1:4)" ids="On,Off"/>
+        <dip bits="4" name="Unused (SW1:5)" ids="On,Off"/>
+        <dip bits="5" name="Unused (SW1:6)" ids="On,Off"/>
+        <dip bits="6" name="Unused (SW1:7)" ids="On,Off"/>
+        <dip bits="7" name="Unused (SW1:8)" ids="On,Off"/>
+        <dip bits="8,9" name="Difficulty" ids="Very Hard,Hard,Easy,Very Easy"/>
+        <dip bits="10,12" name="Coinage" ids="4C/2C,3C/2C,2C/2C,1C/2C,4C/1C,3C/1C,2C/1C,1C/1C"/>
+        <dip bits="13" name="Coin Box" ids="2,1"/>
+        <dip bits="14" name="Lives" ids="2,3"/>
+        <dip bits="15" name="Service Mode" ids="On,Off"/>
+    </switches>
+
+    <rom index="0" zip="puzzlove.zip" md5="74047080b18fbe3d1128da0173e2fee7" address="0x32000000">
+        <!-- maincpu: the 68000 program, each word low byte first -->
+        <interleave output="16">
+            <part name="3.u3" crc="826c8472" offset="0x0" length="0x40000" map="10"/>
+            <part name="4.u2" crc="64ddc708" offset="0x0" length="0x40000" map="01"/>
+        </interleave>
+        <part repeat="0x2000">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</part>
+        <!-- tiles: first half at 0x100000, second half at 0x300000 -->
+        <interleave output="16">
+            <part name="10.u41" crc="7200f878" offset="0x0" length="0x20000" map="01"/>
+            <part name="9.u42" crc="21b1b297" offset="0x0" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="10.u41" crc="7200f878" offset="0x40000" length="0x20000" map="01"/>
+            <part name="9.u42" crc="21b1b297" offset="0x40000" length="0x20000" map="10"/>
+        </interleave>
+        <part repeat="0x6000">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</part>
+        <interleave output="16">
+            <part name="10.u41" crc="7200f878" offset="0x20000" length="0x20000" map="01"/>
+            <part name="9.u42" crc="21b1b297" offset="0x20000" length="0x20000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="10.u41" crc="7200f878" offset="0x60000" length="0x20000" map="01"/>
+            <part name="9.u42" crc="21b1b297" offset="0x60000" length="0x20000" map="10"/>
+        </interleave>
+        <part repeat="0x6000">00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</part>
+        <!-- sprites: first half at 0x500000, second half at 0x600000 -->
+        <interleave output="16">
+            <part name="5.u53" crc="8707d5a0" offset="0x0" length="0x80000" map="01"/>
+            <part name="6.u54" crc="60a6d614" offset="0x0" length="0x80000" map="10"/>
+        </interleave>
+        <interleave output="16">
+            <part name="7.u55" crc="0f2ea5c4" offset="0x0" length="0x80000" map="01"/>
+            <part name="8.u56" crc="037dcd3d" offset="0x0" length="0x80000" map="10"/>
+        </interleave>
+        <!-- oki: the M6295 samples -->
+        <part name="2.uz11" crc="4c06ec68" offset="0x0" length="0x40000"/>
+        <!-- audiocpu: the Z80 program (64 KB) -->
+        <part name="1.uz02" crc="3077e7f3" offset="0x0" length="0x10000"/>
+        <!-- configuration: PuzzLove sprite format, 32768 tiles, sound clocks, vertical, button 3 -->
+        <part>01 00 01 00 00 00 00 00</part>
+    </rom>
+
+    <buttons names="Jump,Extra Time,-,Start,Coin" default="A,B,Start,Select"/>
+</misterromdescription>

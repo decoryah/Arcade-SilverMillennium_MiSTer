@@ -115,9 +115,15 @@ the romsets and MAME's source.
 
 ## Credits
 
-fx68k (Jorge Cwik), TV80 (Guy Hutchison), jt51 and jt6295 (Jose Tejada), MiSTer-CRT-Adjust (rmonic79), the Pocket Gaiapolis core's
-SDRAM controller and `mra_build.py` (plasticbugs), the MiSTer framework (Sorgelig and contributors), MAME (David Haywood wrote the
-Silver Millennium driver; Bryan McPhail and David Haywood the DECO sprite chip).
+* **MAME** (the silvmil driver by David Haywood; `decospr`, the DECO sprite chip, by Bryan McPhail and David Haywood; BSD-3-Clause):
+  the hardware knowledge, the oracle for every comparison, and the reference renderer's logic.
+* **Jorge Cwik**: fx68k (the 68000), GPL-3.0.
+* **Guy Hutchison**: tv80 (the Z80), MIT.
+* **Jose Tejada (jotego)**: jt51 (YM2151) and jt6295 (OKI M6295), GPL-3.0.
+* **Umberto Parisi (rmonic79)**: MiSTer-CRT-Adjust (`modules/crt_adjust`, GPL-3.0-or-later).
+* **plasticbugs**: the Pocket Gaiapolis core's SDRAM controller and `mra_build.py`.
+* **The MiSTer framework** (Sorgelig and contributors); the loader, cache, fast loading and Scale follow the owner's other cores
+  (Cross Pang, Oh My God!, MCatAdv, Metro).
 
 ## Licence
 

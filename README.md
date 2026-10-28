@@ -15,7 +15,7 @@ platform:
 | ![Silver Millennium title screen](docs/title_silvmil.png) | ![PuzzLove title screen](docs/title_puzzlove.png) |
 | ![Silver Millennium in play](docs/play_silvmil.png) | ![PuzzLove in play](docs/play_puzzlove.png) |
 
-The title screens are MAME 0.289's; the pictures in play are as the core's simulation draws them (identical to MAME's).
+Pictures from MAME 0.289 (the attract mode); the core draws the same pictures (`docs/status.md`).
 
 Written for MiSTer from MAME 0.289's driver and its sprite chip (`decospr.cpp`), on the owner's Cross Pang core (the same family of
 boards: `rtl/UPSTREAM.md`). The 68000 is [fx68k](https://github.com/ijor/fx68k) (Jorge Cwik), the Z80 is

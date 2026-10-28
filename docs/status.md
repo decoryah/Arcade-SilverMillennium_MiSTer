@@ -2,7 +2,7 @@
 
 Every number below is from MAME 0.289 and Verilator / Quartus runs on the owner's machine; the scripts are in `../tools/`
 (`tools/paths.py` says where they look for MAME, the romsets and the scratch folder `work/`), the benches in `../sim/`.
-**Not yet tested on a real MiSTer.**
+**Tested on a real MiSTer** by the owner (`silvmil_20261028`): all three sets load and play.
 
 ## The board (from MAME's `src/mame/f32/silvmil.cpp`, kept in `../../ref/mame/`)
 

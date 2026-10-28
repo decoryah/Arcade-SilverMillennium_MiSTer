@@ -27,8 +27,9 @@ MAME romsets.
 
 ## Status
 
-See `docs/status.md` for what was checked and how, against MAME 0.289, in simulation and in the Quartus tool flow. **Not yet tested
-on a real MiSTer.**
+**Tested on a real MiSTer** by the repository owner (`silvmil_20261028`): all three sets load and play.
+
+See `docs/status.md` for what was checked and how, against MAME 0.289, in simulation and in the Quartus tool flow.
 
 ## Install
 
